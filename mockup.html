@@ -44,6 +44,34 @@
             font-weight: 600;
         }
 
+        .screen-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .cancel-button {
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+
+        .confirm-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
         /* Initiative Tracker Screen */
         .initiative-list {
             display: flex;
@@ -70,6 +98,32 @@
             display: flex;
             flex-direction: column;
             gap: 5px;
+        }
+
+        .character-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .character-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .pc-icon {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .npc-icon {
+            background-color: #FF9800;
+            color: white;
         }
 
         .character-name {
@@ -112,6 +166,113 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 16px;
+        }
+
+        .icon-picker-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            height: 42px;
+            box-sizing: border-box;
+            min-width: 80px;
+        }
+
+        .icon-picker-button:hover {
+            border-color: #4CAF50;
+            background-color: #f8f9fa;
+        }
+
+        .icon-picker-button i {
+            font-size: 18px;
+            color: #4CAF50;
+            line-height: 1;
+        }
+
+        .icon-picker-button i.chevron {
+            font-size: 14px;
+            color: #666;
+            line-height: 1;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .form-row .form-label {
+            margin-bottom: 0;
+            min-width: 120px;
+        }
+
+        .form-row .form-input {
+            flex: 1;
+            height: 42px;
+            box-sizing: border-box;
+            padding: 0 12px;
+        }
+
+        .icon-selector {
+            margin-bottom: 15px;
+        }
+
+        .icon-selector-label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .icon-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .icon-option:hover {
+            background-color: #f0f0f0;
+        }
+
+        .icon-option.selected {
+            border-color: #4CAF50;
+            background-color: #e8f5e9;
+        }
+
+        .icon-option i {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .icon-option span {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .pc-icon-option {
+            color: #4CAF50;
+        }
+
+        .npc-icon-option {
+            color: #FF9800;
         }
 
         .submit-button {
@@ -177,17 +338,74 @@
             font-weight: 600;
             margin: 20px 0;
         }
+
+        .class-selector {
+            margin-bottom: 15px;
+        }
+
+        .class-selector-label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .class-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .class-option:hover {
+            background-color: #f0f0f0;
+        }
+
+        .class-option.selected {
+            border-color: #4CAF50;
+            background-color: #e8f5e9;
+        }
+
+        .class-option i {
+            font-size: 24px;
+            margin-bottom: 5px;
+            color: #4CAF50;
+        }
+
+        .class-option span {
+            font-size: 12px;
+            color: #666;
+        }
     </style>
 </head>
 <body>
     <div class="mockup-container">
         <!-- Initiative Tracker Screen -->
         <div class="screen">
-            <div class="screen-title">Initiative Tracker</div>
+            <div class="screen-header">
+                <div style="width: 60px;"></div> <!-- Spacer for alignment -->
+                <div class="screen-title">Set Up Characters</div>
+                <button class="cancel-button">Add</button>
+            </div>
             <div class="initiative-list">
                 <div class="character-card current">
                     <div class="character-info">
-                        <div class="character-name">Gandalf the Grey</div>
+                        <div class="character-header">
+                            <div class="character-icon pc-icon">
+                                <i class="fas fa-user fa-hat-wizard"></i>
+                            </div>
+                            <div class="character-name">Gandalf the Grey</div>
+                        </div>
                         <div class="character-stats">Initiative: 18 | HP: 45/45</div>
                     </div>
                     <div class="character-actions">
@@ -197,7 +415,12 @@
                 </div>
                 <div class="character-card">
                     <div class="character-info">
-                        <div class="character-name">Aragorn</div>
+                        <div class="character-header">
+                            <div class="character-icon pc-icon">
+                                <i class="fas fa-user fa-hand-fist"></i>
+                            </div>
+                            <div class="character-name">Aang the Avatar</div>
+                        </div>
                         <div class="character-stats">Initiative: 15 | HP: 32/32</div>
                     </div>
                     <div class="character-actions">
@@ -207,7 +430,12 @@
                 </div>
                 <div class="character-card">
                     <div class="character-info">
-                        <div class="character-name">Legolas</div>
+                        <div class="character-header">
+                            <div class="character-icon npc-icon">
+                                <i class="fas fa-paw"></i>
+                            </div>
+                            <div class="character-name">Brown Bear</div>
+                        </div>
                         <div class="character-stats">Initiative: 12 | HP: 28/28</div>
                     </div>
                     <div class="character-actions">
@@ -215,15 +443,29 @@
                         <button class="action-button"><i class="fas fa-trash"></i></button>
                     </div>
                 </div>
+                <div class="character-card">
+                    <div class="character-info">
+                        <div class="character-header">
+                            <div class="character-icon npc-icon">
+                                <i class="fas fa-spider"></i>
+                            </div>
+                            <div class="character-name">Giant Spider</div>
+                        </div>
+                        <div class="character-stats">Initiative: 14 | HP: 26/26</div>
+                    </div>
+                    <div class="character-actions">
+                        <button class="action-button"><i class="fas fa-edit"></i></button>
+                        <button class="action-button"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div style="position: absolute; bottom: 80px; left: 20px; right: 20px;">
+                <button class="submit-button">Start Combat</button>
             </div>
             <div class="bottom-nav">
                 <a href="#" class="nav-item active">
                     <i class="fas fa-list nav-icon"></i>
                     <span>Tracker</span>
-                </a>
-                <a href="#" class="nav-item">
-                    <i class="fas fa-plus nav-icon"></i>
-                    <span>Add</span>
                 </a>
                 <a href="#" class="nav-item">
                     <i class="fas fa-cog nav-icon"></i>
@@ -234,10 +476,20 @@
 
         <!-- Add Character Screen -->
         <div class="screen">
-            <div class="screen-title">Add New Character</div>
+            <div class="screen-header">
+                <button class="cancel-button">Cancel</button>
+                <div class="screen-title">Add New Character</div>
+                <div style="width: 60px;"></div> <!-- Spacer for alignment -->
+            </div>
             <div class="form-group">
-                <label class="form-label">Character Name</label>
-                <input type="text" class="form-input" placeholder="Enter character name">
+                <label class="form-label">Character Name & Icon</label>
+                <div class="form-row">
+                    <div class="icon-picker-button">
+                        <i class="fas fa-sword pc-icon-option"></i>
+                        <i class="fas fa-user-circle chevron"></i>
+                    </div>
+                    <input type="text" class="form-input" placeholder="Enter character name">
+                </div>
             </div>
             <div class="form-group">
                 <label class="form-label">Initiative</label>
@@ -248,22 +500,120 @@
                 <input type="number" class="form-input" placeholder="Enter max HP">
             </div>
             <div class="form-group">
-                <label class="form-label">Current HP</label>
-                <input type="number" class="form-input" placeholder="Enter current HP">
-            </div>
-            <div class="form-group">
                 <label class="form-label">AC</label>
                 <input type="number" class="form-input" placeholder="Enter AC">
             </div>
-            <button class="submit-button">Add Character</button>
+            <div style="position: absolute; bottom: 80px; left: 20px; right: 20px;">
+                <button class="submit-button">Add Character</button>
+            </div>
             <div class="bottom-nav">
                 <a href="#" class="nav-item">
                     <i class="fas fa-list nav-icon"></i>
                     <span>Tracker</span>
                 </a>
-                <a href="#" class="nav-item active">
-                    <i class="fas fa-plus nav-icon"></i>
-                    <span>Add</span>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-cog nav-icon"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Icon Picker Screen -->
+        <div class="screen">
+            <div class="screen-header">
+                <button class="cancel-button">Cancel</button>
+                <div class="screen-title">Select Icon</div>
+                <div style="width: 60px;"></div> <!-- Spacer for alignment -->
+            </div>
+            <div class="icon-selector">
+                <div class="icon-grid">
+                    <!-- PC Classes -->
+                    <div class="icon-option selected">
+                        <i class="fas fa-sword pc-icon-option"></i>
+                        <span>Fighter</span>
+                    </div>
+                    <div class="icon-option">
+                        <i class="fas fa-hat-wizard pc-icon-option"></i>
+                        <span>Wizard</span>
+                    </div>
+                    <div class="icon-option">
+                        <i class="fas fa-pray pc-icon-option"></i>
+                        <span>Cleric</span>
+                    </div>
+                    <div class="icon-option">
+                        <i class="fas fa-mask pc-icon-option"></i>
+                        <span>Rogue</span>
+                    </div>
+                    <div class="icon-option">
+                        <i class="fas fa-bow-arrow pc-icon-option"></i>
+                        <span>Ranger</span>
+                    </div>
+                    <div class="icon-option">
+                        <i class="fas fa-hand-fist pc-icon-option"></i>
+                        <span>Monk</span>
+                    </div>
+                    <div class="icon-option">
+                        <i class="fas fa-music pc-icon-option"></i>
+                        <span>Bard</span>
+                    </div>
+                    <div class="icon-option">
+                        <i class="fas fa-dragon pc-icon-option"></i>
+                        <span>Sorcerer</span>
+                    </div>
+                    <div class="icon-option">
+                        <i class="fas fa-book pc-icon-option"></i>
+                        <span>Warlock</span>
+                    </div>
+                    <div class="icon-option">
+                        <i class="fas fa-leaf pc-icon-option"></i>
+                        <span>Druid</span>
+                    </div>
+                    <div class="icon-option">
+                        <i class="fas fa-hammer pc-icon-option"></i>
+                        <span>Paladin</span>
+                    </div>
+                    <div class="icon-option">
+                        <i class="fas fa-axe pc-icon-option"></i>
+                        <span>Barbarian</span>
+                    </div>
+                    <!-- NPC Types -->
+                    <div class="icon-option">
+                        <i class="fas fa-dragon npc-icon-option"></i>
+                        <span>Monster</span>
+                    </div>
+                    <div class="icon-option">
+                        <i class="fas fa-skull npc-icon-option"></i>
+                        <span>Undead</span>
+                    </div>
+                    <div class="icon-option">
+                        <i class="fas fa-paw npc-icon-option"></i>
+                        <span>Beast</span>
+                    </div>
+                    <div class="icon-option">
+                        <i class="fas fa-robot npc-icon-option"></i>
+                        <span>Construct</span>
+                    </div>
+                    <div class="icon-option">
+                        <i class="fas fa-ghost npc-icon-option"></i>
+                        <span>Spirit</span>
+                    </div>
+                    <div class="icon-option">
+                        <i class="fas fa-fish npc-icon-option"></i>
+                        <span>Creature</span>
+                    </div>
+                    <div class="icon-option">
+                        <i class="fas fa-spider npc-icon-option"></i>
+                        <span>Insect</span>
+                    </div>
+                </div>
+            </div>
+            <div style="position: absolute; bottom: 80px; left: 20px; right: 20px;">
+                <button class="submit-button">Confirm</button>
+            </div>
+            <div class="bottom-nav">
+                <a href="#" class="nav-item">
+                    <i class="fas fa-list nav-icon"></i>
+                    <span>Tracker</span>
                 </a>
                 <a href="#" class="nav-item">
                     <i class="fas fa-cog nav-icon"></i>
@@ -293,7 +643,12 @@
             <div class="initiative-list">
                 <div class="character-card current">
                     <div class="character-info">
-                        <div class="character-name">Gandalf the Grey</div>
+                        <div class="character-header">
+                            <div class="character-icon pc-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="character-name">Gandalf the Grey</div>
+                        </div>
                         <div class="character-stats">Initiative: 18 | HP: 45/45</div>
                     </div>
                     <div class="character-actions">
@@ -303,7 +658,12 @@
                 </div>
                 <div class="character-card">
                     <div class="character-info">
-                        <div class="character-name">Aragorn</div>
+                        <div class="character-header">
+                            <div class="character-icon npc-icon">
+                                <i class="fas fa-dragon"></i>
+                            </div>
+                            <div class="character-name">Aragorn</div>
+                        </div>
                         <div class="character-stats">Initiative: 15 | HP: 32/32</div>
                     </div>
                     <div class="character-actions">
@@ -316,10 +676,6 @@
                 <a href="#" class="nav-item">
                     <i class="fas fa-list nav-icon"></i>
                     <span>Tracker</span>
-                </a>
-                <a href="#" class="nav-item">
-                    <i class="fas fa-plus nav-icon"></i>
-                    <span>Add</span>
                 </a>
                 <a href="#" class="nav-item">
                     <i class="fas fa-cog nav-icon"></i>
